@@ -1,9 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import donkeynewspaper from "./donkey_reading_newspaper.png";
-export class NewsItem extends Component {
-  render() {
+const  NewsItem =(props)=> {
     let { title, description, imgurl, newsurl, author, date, source } =
-      this.props;
+      props;
     return (
       <div className="my-3">
         <div className="card ">
@@ -27,8 +26,8 @@ export class NewsItem extends Component {
             <p className="card-text">{description}</p>
             <p className="card-text">
               <small className="text-body-secondary">
-                By {author == null ? "Trust Me Bro" : author} on{" "}
-                {new Date(date).toGMTtime}{" "}
+                By {author == null ? "Trust Me Bro" : author}{" "} On{" "}
+                {new Date(date).toGMTString()}
               </small>
             </p>
             <a href={newsurl} target="blank" className="btn btn-sm btn-dark">
@@ -38,7 +37,7 @@ export class NewsItem extends Component {
         </div>
       </div>
     );
-  }
+  
 }
 
 export default NewsItem;
